@@ -1,0 +1,98 @@
+.paginationContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+.searchInput{
+  margin-right: 20px;
+}
+  .pagination {
+    display: flex;
+    list-style-type: none;
+    margin-top: 16px;
+  }
+
+  .break {
+    display: flex;
+    align-self: flex-end;
+    margin: 0 5px;
+    padding: 20px 0 0 0;
+    cursor: pointer;
+    color: var(--interfaceColor);
+
+  }
+
+  .breakLink {
+    &:focus {
+      outline: none
+    }
+  }
+
+  .pages {
+    cursor: pointer;
+    padding: 5px;
+    margin: 5px;
+    color: var(--paginationColor);
+    border: solid 2px var(--interfaceColor);
+    transition: 0.2s;
+    &:hover {
+      color: #ffffff;
+      font-weight: bold;
+      background-color: var(--interfaceColor);
+      transition: 0.2s;
+    }
+  }
+
+  .pagesLink {
+    padding: 5px;
+
+    &:focus {
+      outline: none
+    }
+  }
+
+  .active {
+    padding: 5px;
+    margin: 5px;
+    color: #4cc14c;
+    border: solid 2px #4cc14c;
+  }
+
+  .activeLink {
+    font-weight: bold;
+  }
+
+  .prev {
+    display: flex;
+    align-self: center;
+    cursor: pointer;
+    margin-right: 5px;
+    color: var(--paginationColor);
+  }
+
+  .prevLink {
+    font-size: 20px;
+    font-weight: bold;
+
+    &:focus {
+      outline: none
+    }
+  }
+
+  .next {
+    display: flex;
+    align-self: center;
+    cursor: pointer;
+    margin-left: 5px;
+    color: var(--paginationColor);
+  }
+
+  .nextLink {
+    font-size: 20px;
+    font-weight: bold;
+
+    &:focus {
+      outline: none
+    }
+  }
+}

@@ -1,0 +1,21 @@
+export const GET_SIDEBAR_TITLES_REQUEST = 'GET_SIDEBAR_TITLES_REQUEST';
+export const GET_SIDEBAR_TITLES_SUCCESS = 'GET_SIDEBAR_TITLES_SUCCESS';
+export const GET_SIDEBAR_TITLES_FAIL = 'GET_SIDEBAR_TITLES_FAIL';
+
+export function getSidebarTitlesRequest() {
+  return {
+    type: GET_SIDEBAR_TITLES_REQUEST,
+    payload: {},
+  };
+}
+
+export const CREATE_UPDATE_SIDEBAR_TITLES_REQUEST = 'CREATE_UPDATE_SIDEBAR_TITLES_REQUEST';
+export const CREATE_UPDATE_SIDEBAR_TITLES_SUCCESS = 'CREATE_UPDATE_SIDEBAR_TITLES_SUCCESS';
+export const CREATE_UPDATE_SIDEBAR_TITLES_FAIL = 'CREATE_UPDATE_SIDEBAR_TITLES_FAIL';
+
+export function createUpdateSidebarTitleRequest(titles) {
+  return {
+    type: CREATE_UPDATE_SIDEBAR_TITLES_REQUEST,
+    payload: { titles },
+  };
+}

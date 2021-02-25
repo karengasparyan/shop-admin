@@ -1,0 +1,39 @@
+.buttonContainer{
+  justify-self: center;
+  margin: 8px 0;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  display: inline-block;
+  .button {
+    width: 90px;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: var(--interfaceColor);
+    padding: 7px 7px;
+    margin: 8px;
+    border: solid 2px var(--interfaceColor);
+    border-radius: 5px;
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.4);
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out,
+    transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    &:hover {
+      color: var(--interfaceColor);
+      background-color: #ffffff;
+      border: solid 2px var(--interfaceColor);
+      transition: 1s;
+    }
+    &:focus {
+      border: none;
+    }
+  }
+}
+
+button:focus {outline:0;}

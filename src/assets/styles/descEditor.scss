@@ -1,0 +1,36 @@
+.descEditorWrapper {
+  width: 95%;
+  padding: 5px;
+  .descEditor {
+    padding-left: 10px;
+    box-sizing: border-box;
+    background-color: transparent;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    outline: none;
+    box-shadow: none;
+    transition: all .3s;
+    &:focus{
+      border: solid 2px var(--interfaceColor);
+    }
+  }
+}
+
+.labelDesc{
+  max-width: 100%;
+  white-space: nowrap;
+  display: inline-block;
+  margin-bottom: .5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1.25rem;
+  transform: translateY(10px);
+  position: absolute;
+  top: 74px;
+  left: 10px;
+  padding-left: 10px;
+  color: #757575;
+  cursor: text;
+  transition: transform .2s ease-out, color .2s ease-out;
+  transform-origin: 0 100%;
+}
