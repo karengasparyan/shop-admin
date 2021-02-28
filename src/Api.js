@@ -30,7 +30,7 @@ class Api {
 
   static getProducts(query) {
     return api.get('/products', {
-      params: { query },
+      params: query ,
     });
   }
 

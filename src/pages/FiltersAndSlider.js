@@ -120,7 +120,7 @@ class FiltersAndSlider extends Component {
 
     if (value !== '') {
 
-      titles.find(t => t.id === editId).title = value;
+      ((titles || []).find(t => t.id === editId).title) = value;
 
       this.setState({editModal: false, titles, openModal: false, })
 
