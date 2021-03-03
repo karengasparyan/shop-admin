@@ -278,6 +278,7 @@ class CreateUpdate extends Component {
                 type="number"
                 label="price"
                 className=""
+                min="0"
                 value={values.price}
                 onChange={(ev) => this.handleChange(ev, 'price')}
               />
@@ -287,6 +288,7 @@ class CreateUpdate extends Component {
                 type="number"
                 label="salePrice"
                 className=""
+                min="0"
                 value={values.salePrice}
                 onChange={(ev) => this.handleChange(ev, 'salePrice')}
               />
@@ -296,6 +298,7 @@ class CreateUpdate extends Component {
                 type="number"
                 label="qty"
                 className=""
+                min="0"
                 value={values.qty}
                 onChange={(ev) => this.handleChange(ev, 'qty')}
               />
