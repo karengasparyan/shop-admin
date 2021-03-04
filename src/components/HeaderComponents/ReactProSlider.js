@@ -30,38 +30,19 @@ class ReactProSlider extends Component {
               <MenuItem><Link to="/">Order List</Link></MenuItem>
               <MenuItem><Link to="/admin/data-tables">Products Data</Link></MenuItem>
               <MenuItem><Link to="/admin/filters-slider">Filters and Slider</Link></MenuItem>
-              <SubMenu title="КАТАЛОГ">
-                <MenuItem><Link to="/">КОНТАКТЫ</Link></MenuItem>
-                <MenuItem><Link to="/">САМОВЫВОЗ</Link></MenuItem>
-                <MenuItem><Link to="/">САМОВЫВОЗ</Link></MenuItem>
-                <MenuItem><Link to="/">САМОВЫВОЗ</Link></MenuItem>
-                <MenuItem><Link to="/">САМОВЫВОЗ</Link></MenuItem>
-              </SubMenu>
-              <MenuItem><Link to="/">ДОСТАВКА И ОПЛАТА</Link></MenuItem>
-              <MenuItem><Link to="/">ГАРАНТИЯ</Link></MenuItem>
-              <SubMenu title="О МАГАЗИНЕ">
-                <MenuItem><Link to="/">КОНТАКТЫ</Link></MenuItem>
-                <MenuItem><Link to="/">САМОВЫВОЗ</Link></MenuItem>
-                <MenuItem><Link to="/">САМОВЫВОЗ</Link></MenuItem>
-                <MenuItem><Link to="/">САМОВЫВОЗ</Link></MenuItem>
-                <MenuItem><Link to="/">САМОВЫВОЗ</Link></MenuItem>
-                <MenuItem><Link to="/">САМОВЫВОЗ</Link></MenuItem>
-                <MenuItem><Link to="/">САМОВЫВОЗ</Link></MenuItem>
-                <MenuItem><Link to="/">САМОВЫВОЗ</Link></MenuItem>
-                <MenuItem><Link to="/">САМОВЫВОЗ</Link></MenuItem>
-                <MenuItem><Link to="/">САМОВЫВОЗ</Link></MenuItem>
-                <MenuItem><Link to="/">САМОВЫВОЗ</Link></MenuItem>
-                <MenuItem><Link to="/">САМОВЫВОЗ</Link></MenuItem>
-                <MenuItem><Link to="/">САМОВЫВОЗ</Link></MenuItem>
-                <MenuItem><Link to="/">САМОВЫВОЗ</Link></MenuItem>
-                <MenuItem><Link to="/">САМОВЫВОЗ</Link></MenuItem>
-                <MenuItem><Link to="/">САМОВЫВОЗ</Link></MenuItem>
-                <MenuItem><Link to="/">САМОВЫВОЗ</Link></MenuItem>
-                <MenuItem><Link to="/">САМОВЫВОЗ</Link></MenuItem>
-                <MenuItem><Link to="/">САМОВЫВОЗ</Link></MenuItem>
-                <MenuItem><Link to="/">САМОВЫВОЗ</Link></MenuItem>
-                <MenuItem><Link to="/">САМОВЫВОЗ</Link></MenuItem>
-              </SubMenu>
+              {/*<SubMenu title="КАТАЛОГ">*/}
+              {/*  <MenuItem><Link to="/">КОНТАКТЫ</Link></MenuItem>*/}
+              {/*  <MenuItem><Link to="/">САМОВЫВОЗ</Link></MenuItem>*/}
+              {/*  <MenuItem><Link to="/">САМОВЫВОЗ</Link></MenuItem>*/}
+              {/*  <MenuItem><Link to="/">САМОВЫВОЗ</Link></MenuItem>*/}
+              {/*  <MenuItem><Link to="/">САМОВЫВОЗ</Link></MenuItem>*/}
+              {/*</SubMenu>*/}
+              {/*<MenuItem><Link to="/">ДОСТАВКА И ОПЛАТА</Link></MenuItem>*/}
+              {/*<MenuItem><Link to="/">ГАРАНТИЯ</Link></MenuItem>*/}
+              {/*<SubMenu title="О МАГАЗИНЕ">*/}
+              {/*  <MenuItem><Link to="/">КОНТАКТЫ</Link></MenuItem>*/}
+              {/*  <MenuItem><Link to="/">САМОВЫВОЗ</Link></MenuItem>*/}
+              {/*</SubMenu>*/}
             </Menu>
           </ProSidebar>
         </div>
