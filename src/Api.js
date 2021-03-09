@@ -50,8 +50,8 @@ class Api {
     return api.post('/products/upload-image', serialize({file, productId, images}));
   }
 
-  static uploadImageSlider(file, images) {
-    return api.post('/products/upload-sidebar-image', serialize({file, images}));
+  static uploadImageSlider(file, images, imageTitle, imageDescription, catalogLink) {
+    return api.post('/products/upload-sidebar-image', serialize({file, images, imageTitle, imageDescription, catalogLink}));
   }
 
   static getImageSlider() {

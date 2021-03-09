@@ -60,8 +60,8 @@ export default function reducer(state = initialState, action) {
     case GET_PRODUCTS_SUCCESS: {
       const { products, productCount, } = action.payload.data;
       let productsKeys = Object.keys(products[0])
-      productsKeys = Utils.deleteArrayElement(productsKeys, ['id','description','attributes','createdAt','updatedAt','images']);
-      productsKeys.push('attributeKey','attributeValue','images','createdAt','updatedAt')
+      productsKeys = Utils.deleteArrayElement(productsKeys, ['id','description','attributes','createdAt','updatedAt','images','metaName','metaDescription',]);
+      productsKeys.push('metaName','metaDescription','attributeKey','attributeValue','images','createdAt','updatedAt')
       productsKeys.unshift('')
       return {
         ...state,

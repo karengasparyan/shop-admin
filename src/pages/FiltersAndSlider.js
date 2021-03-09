@@ -30,6 +30,7 @@ class FiltersAndSlider extends Component {
       fileAttr: [],
       images: [],
       deletedImages: [],
+      values: {}
     }
     this.modalStyle = {
       overlay: {
@@ -72,7 +73,15 @@ class FiltersAndSlider extends Component {
   initImages = memoizeOne((sliderImages) => {
     if (sliderImages) {
       let images = [];
+      let values = {};
       images = (sliderImages || []).map(i => i.id)
+
+      for (let i = 0; i < sliderImages.length; i++){
+        values.imageTitle = i.id;
+        values.imageDescription = i.path;
+        values.catalogLink = i.path;
+      }
+      console.log(values)
       this.setState({ images })
     }
   }, _.isEqual)
@@ -149,14 +158,20 @@ class FiltersAndSlider extends Component {
   }
 
   uploadImages = () => {
-    const { fileAttr, deletedImages } = this.state;
+    const { fileAttr, deletedImages, values } = this.state;
 
     const FileList = [];
     fileAttr.map((f, i) => FileList[i] = f.file);
     FileList.length = Object.keys(FileList).length;
 
     if (!_.isEmpty(fileAttr) || !_.isEmpty(deletedImages)){
-      this.props.uploadImagesSliderRequest(FileList, JSON.stringify(deletedImages));
+      this.props.uploadImagesSliderRequest(
+        FileList,
+        JSON.stringify(deletedImages),
+        values.imageTitle,
+        values.imageDescription,
+        values.catalogLink,
+        );
       toast.success('Changes saved')
     } else {
       toast.info('No change')
@@ -170,8 +185,10 @@ class FiltersAndSlider extends Component {
   }
 
   imageUploadPreview = (ev) => {
+    const { values } = this.state
     const fileAttr = [];
     const { files } = ev.target;
+
     for (let i = 0; i < files.length; i++) {
       fileAttr.push({
         path: URL.createObjectURL(files[i]),
@@ -199,14 +216,17 @@ class FiltersAndSlider extends Component {
     this.setState({ images, deletedImages })
   }
 
-  // removeImage = (imageId) => {
-  //   const { values } = this.state;
-  //   values.images = values.images.filter(id => id !== imageId);
-  //   this.setState({ values })
-  // }
+  handleChangeImage = (ev, i) => {
+    const { values } = this.state;
+    const value = _.get(ev, 'target.value', ev)
+
+    _.set(values, i, value)
+
+    this.setState({ values });
+  }
 
   render() {
-    const {titles, openModal, value, editModal, images, uploadImageCount, fileAttr} = this.state;
+    const {titles, openModal, value, editModal, images, uploadImageCount, fileAttr, values} = this.state;
     const { sidebarTitles, sliderImages } = this.props;
     this.initTitles(sidebarTitles)
 
@@ -217,6 +237,8 @@ class FiltersAndSlider extends Component {
     }
 
     this.initImages(sliderImages)
+
+    console.log(values)
 
     return (
       <WrapperSign>
@@ -262,21 +284,56 @@ class FiltersAndSlider extends Component {
             {(images || []).map((imageId) => {
               const image = (sliderImages || []).find(i => i.id === imageId) || {};
               return (
-                <div className="containerAbsolute">
-                  <img key={imageId}
+                <div key={imageId} className="containerAbsolute">
+                  <img
                        className="imagePreview"
                        src={`${direction}/sliderImages/${image.path}`}
                        alt={`image_${image.id}`} />
                   <span onClick={() => this.removeImage(image)} className="deleteImageButton">x</span>
-                </div>
-              )
-            })}
-            {fileAttr?.map((f, i) => <div className="containerAbsolute">
+                  <div className="sliderImgAttributeContainer">
+                    <span className="sliderImgAttribute">Title</span>
+                    <p>{image.imageTitle}</p>
+
+                    <span className="sliderImgAttribute">Description</span>
+                    <p>{image.imageDescription}</p>
+
+                    <span className="sliderImgAttribute">Link</span>
+                    <p>{image.catalogLink}</p>
+
+                  </div>
+                </div>)})}
+            {fileAttr?.map((f, i) => <div key={i} className="containerAbsolute">
               <img
-                key={i}
                 className="imagePreview"
                 src={f.path}
                 alt={`image${i}`}
+              />
+              <Input
+                id={`imageTitle_${f.path}`}
+                name="imageTitle"
+                type="text"
+                label="imageTitle"
+                className="imageTitle"
+                value={values.imageTitle}
+                onChange={(ev) => this.handleChangeImage(ev, `imageTitle`)}
+              />
+              <Input
+                id={`imageDescription_${f.path}`}
+                name="imageDescription"
+                type="text"
+                label="imageDescription"
+                className="imageDescription"
+                value={values.imageDescription}
+                onChange={(ev) => this.handleChangeImage(ev, `imageDescription`)}
+              />
+              <Input
+                id={`catalogLink_${f.path}`}
+                name="catalogLink"
+                type="text"
+                label="catalogLink"
+                className="catalogLink"
+                value={values.catalogLink}
+                onChange={(ev) => this.handleChangeImage(ev, `catalogLink`)}
               />
               <span onClick={() => this.removePreviewImage(f)} className="deleteImageButton">x</span>
             </div>)}
@@ -287,7 +344,7 @@ class FiltersAndSlider extends Component {
               name="file"
               type="file"
               id="file"
-              multiple
+              // multiple
               className="file"
             />
             <label htmlFor="file">

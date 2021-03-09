@@ -79,10 +79,10 @@ export const UPLOAD_IMAGE_SLIDER_REQUEST = 'UPLOAD_IMAGE_SLIDER_REQUEST';
 export const UPLOAD_IMAGE_SLIDER_SUCCESS = 'UPLOAD_IMAGE_SLIDER_SUCCESS';
 export const UPLOAD_IMAGE_SLIDER_FAIL = 'UPLOAD_IMAGE_SLIDER_FAIL';
 
-export function uploadImagesSliderRequest(files, images,) {
+export function uploadImagesSliderRequest(files, images, imageTitle, imageDescription, catalogLink) {
   return {
     type: UPLOAD_IMAGE_SLIDER_REQUEST,
-    payload: { files, images }
+    payload: { files, images, imageTitle, imageDescription, catalogLink }
   };
 }
 

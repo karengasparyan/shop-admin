@@ -55,6 +55,8 @@ class CreateUpdate extends Component {
       values.price = singleProduct.price;
       values.salePrice = singleProduct.salePrice;
       values.qty = singleProduct.qty;
+      values.metaName = singleProduct.metaName;
+      values.metaDescription = singleProduct.metaDescription;
       values.images = (singleProduct.images || []).map(i => i.id)
       values.relatedProducts = singleProduct.relatedProducts
       values.attributes = (singleProduct.attributes || []).map(a => {
@@ -301,6 +303,27 @@ class CreateUpdate extends Component {
                 min="0"
                 value={values.qty}
                 onChange={(ev) => this.handleChange(ev, 'qty')}
+              />
+            </div>
+            <div className="relContainer">
+              <h3 className="title">Meta data</h3>
+              <Input
+                id="metaName"
+                name="metaName"
+                type="text"
+                label="metaName"
+                className="metaName"
+                value={values.metaName}
+                onChange={(ev) => this.handleChange(ev, 'metaName')}
+              />
+              <Input
+                id="metaDescription"
+                name="metaDescription"
+                type="text"
+                label="metaDescription"
+                className="metaDescription"
+                value={values.metaDescription}
+                onChange={(ev) => this.handleChange(ev, 'metaDescription')}
               />
             </div>
             <div className="relContainer">

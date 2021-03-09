@@ -257,7 +257,13 @@ tr:nth-child(even) {
 
     .containerAbsolute {
       position: relative;
-
+    .sliderImgAttributeContainer{
+      margin-left: 10px;
+      .sliderImgAttribute{
+        font-size: 14px;
+        font-weight: bold;
+      }
+    }
       .deleteImageButton {
         position: absolute;
         top: 15px;

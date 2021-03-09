@@ -169,8 +169,8 @@ function* uploadImageProduct(action) {
 
 function* uploadImageSlider(action) {
   try {
-    const { files, images } = action.payload;
-    const { data } = yield call(Api.uploadImageSlider, files, images);
+    const { files, images, imageTitle, imageDescription, catalogLink } = action.payload;
+    const { data } = yield call(Api.uploadImageSlider, files, images, imageTitle, imageDescription, catalogLink);
     yield put({
       type: UPLOAD_IMAGE_SLIDER_SUCCESS,
       payload: { data },

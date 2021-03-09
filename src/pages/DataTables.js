@@ -152,6 +152,8 @@ class DataTables extends Component {
               <th>{p.price}</th>
               <th>{p.salePrice}</th>
               <th>{p.qty}</th>
+              <th>{p.metaName}</th>
+              <th>{p.metaDescription}</th>
               <th>{p.attributes.map((a, i) => <tr key={i} style={{border: 'none'}}>{a.attributeKey}</tr>)}</th>
               <th>{p.attributes.map((a, i) => <tr key={i} style={{border: 'none'}}>{a.attributeValue}</tr>)}</th>
               <th onClick={() => this.handleChangeOpen(p.id)}>
