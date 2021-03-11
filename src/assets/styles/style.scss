@@ -250,6 +250,7 @@ tr:nth-child(even) {
 
 
   .imagesContainer {
+    width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -257,6 +258,8 @@ tr:nth-child(even) {
 
     .containerAbsolute {
       position: relative;
+      width: calc(100% / 5);
+      margin: 10px;
     .sliderImgAttributeContainer{
       margin-left: 10px;
       .sliderImgAttribute{
@@ -275,6 +278,21 @@ tr:nth-child(even) {
         margin: 0 10px 10px 10px;
         cursor: pointer;
         transition: 0.5s;
+
+        &:hover:after {
+          width: max-content;
+          bottom: 5px;
+          font-size: 14px;
+          background: #333;
+          background: rgba(28, 28, 28, 0.8);
+          border-radius: 5px;
+          border-bottom-left-radius: 0;
+          color: #fff;
+          content: attr(gloss);
+          padding: 12px 5px;
+          position: absolute;
+          z-index: 999999;
+        }
 
         &:hover {
           color: rgba(255, 0, 0, 1);

@@ -117,3 +117,14 @@ export function updateOrderStatusRequest(id) {
     payload: { id },
   };
 }
+
+export const UPDATE_SLIDE_IMAGE_DESC_REQUEST = 'UPDATE_SLIDE_IMAGE_DESC_REQUEST';
+export const UPDATE_SLIDE_IMAGE_DESC_SUCCESS = 'UPDATE_SLIDE_IMAGE_DESC_SUCCESS';
+export const UPDATE_SLIDE_IMAGE_DESC_FAIL = 'UPDATE_SLIDE_IMAGE_DESC_FAIL';
+
+export function updateSliderImageDescRequest(id, imageTitle, imageDescription, catalogLink) {
+  return {
+    type: UPDATE_SLIDE_IMAGE_DESC_REQUEST,
+    payload: {id, imageTitle, imageDescription, catalogLink },
+  };
+}

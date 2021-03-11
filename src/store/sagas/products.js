@@ -9,7 +9,8 @@ import {
   DELETE_PRODUCTS_SUCCESS,
   GET_ATTRIBUTES_FAIL,
   GET_ATTRIBUTES_REQUEST,
-  GET_ATTRIBUTES_SUCCESS, GET_IMAGE_SLIDER_FAIL,
+  GET_ATTRIBUTES_SUCCESS,
+  GET_IMAGE_SLIDER_FAIL,
   GET_IMAGE_SLIDER_REQUEST,
   GET_IMAGE_SLIDER_SUCCESS,
   GET_ORDER_LIST_FAIL,
@@ -27,6 +28,9 @@ import {
   UPDATE_PRODUCTS_FAIL,
   UPDATE_PRODUCTS_REQUEST,
   UPDATE_PRODUCTS_SUCCESS,
+  UPDATE_SLIDE_IMAGE_DESC_FAIL,
+  UPDATE_SLIDE_IMAGE_DESC_REQUEST,
+  UPDATE_SLIDE_IMAGE_DESC_SUCCESS,
   UPLOAD_IMAGE_PRODUCTS_FAIL,
   UPLOAD_IMAGE_PRODUCTS_REQUEST,
   UPLOAD_IMAGE_PRODUCTS_SUCCESS,
@@ -234,6 +238,23 @@ function* updateOrderStatus(action) {
   }
 }
 
+function* updateSliderImageDesc(action) {
+  try {
+    const {id, imageTitle, imageDescription, catalogLink } = action.payload;
+    const { data } = yield call(Api.updateSliderImageDesc, id, imageTitle, imageDescription, catalogLink);
+    yield put({
+      type: UPDATE_SLIDE_IMAGE_DESC_SUCCESS,
+      payload: { data },
+    });
+  } catch (e) {
+    yield put({
+      type: UPDATE_SLIDE_IMAGE_DESC_FAIL,
+      message: e.message,
+      payload: { data: e.response?.data || {} },
+    });
+  }
+}
+
 
 export default function* watcher() {
   yield takeLatest(GET_PRODUCTS_REQUEST, getProducts);
@@ -247,4 +268,5 @@ export default function* watcher() {
   yield takeLatest(GET_IMAGE_SLIDER_REQUEST, getImageSlider);
   yield takeLatest(GET_ORDER_LIST_REQUEST, orderList);
   yield takeLatest(UPDATE_ORDER_STATUS_REQUEST, updateOrderStatus);
+  yield takeLatest(UPDATE_SLIDE_IMAGE_DESC_REQUEST, updateSliderImageDesc);
 }

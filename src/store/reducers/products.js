@@ -7,7 +7,10 @@ import {
   DELETE_PRODUCTS_SUCCESS,
   GET_ATTRIBUTES_FAIL,
   GET_ATTRIBUTES_REQUEST,
-  GET_ATTRIBUTES_SUCCESS, GET_IMAGE_SLIDER_FAIL, GET_IMAGE_SLIDER_REQUEST, GET_IMAGE_SLIDER_SUCCESS,
+  GET_ATTRIBUTES_SUCCESS,
+  GET_IMAGE_SLIDER_FAIL,
+  GET_IMAGE_SLIDER_REQUEST,
+  GET_IMAGE_SLIDER_SUCCESS,
   GET_ORDER_LIST_FAIL,
   GET_ORDER_LIST_REQUEST,
   GET_ORDER_LIST_SUCCESS,
@@ -23,9 +26,15 @@ import {
   UPDATE_PRODUCTS_FAIL,
   UPDATE_PRODUCTS_REQUEST,
   UPDATE_PRODUCTS_SUCCESS,
+  UPDATE_SLIDE_IMAGE_DESC_FAIL,
+  UPDATE_SLIDE_IMAGE_DESC_REQUEST,
+  UPDATE_SLIDE_IMAGE_DESC_SUCCESS,
   UPLOAD_IMAGE_PRODUCTS_FAIL,
   UPLOAD_IMAGE_PRODUCTS_REQUEST,
-  UPLOAD_IMAGE_PRODUCTS_SUCCESS, UPLOAD_IMAGE_SLIDER_FAIL, UPLOAD_IMAGE_SLIDER_REQUEST, UPLOAD_IMAGE_SLIDER_SUCCESS
+  UPLOAD_IMAGE_PRODUCTS_SUCCESS,
+  UPLOAD_IMAGE_SLIDER_FAIL,
+  UPLOAD_IMAGE_SLIDER_REQUEST,
+  UPLOAD_IMAGE_SLIDER_SUCCESS
 } from "../actions/products";
 import Utils from "../../helpers/Utils";
 
@@ -277,7 +286,6 @@ export default function reducer(state = initialState, action) {
         error: message,
       };
     }
-
     case UPDATE_ORDER_STATUS_REQUEST: {
       return {
         ...state,
@@ -292,6 +300,27 @@ export default function reducer(state = initialState, action) {
       };
     }
     case UPDATE_ORDER_STATUS_FAIL: {
+      const {message} = action.payload.data;
+      return {
+        ...state,
+        error: message,
+      };
+    }
+
+    case UPDATE_SLIDE_IMAGE_DESC_REQUEST: {
+      return {
+        ...state,
+        error: '',
+      };
+    }
+    case UPDATE_SLIDE_IMAGE_DESC_SUCCESS: {
+
+      return {
+        ...state,
+
+      };
+    }
+    case UPDATE_SLIDE_IMAGE_DESC_FAIL: {
       const {message} = action.payload.data;
       return {
         ...state,

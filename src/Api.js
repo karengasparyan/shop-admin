@@ -85,6 +85,10 @@ class Api {
     return api.post('cart/update-order-status', {id});
   }
 
+  static updateSliderImageDesc(id, imageTitle, imageDescription, catalogLink) {
+    return api.post('products/update-slider-image-desc', {id, imageTitle, imageDescription, catalogLink});
+  }
+
 }
 
 export default Api;
