@@ -43,7 +43,6 @@ class FiltersAndSlider extends Component {
         width: '100%',
         position: 'fixed',
         backgroundColor: 'rgba(0,0,0,0.5)',
-
       },
       content: {
         width: '50%',
