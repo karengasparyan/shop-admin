@@ -30,6 +30,7 @@ class ReactProSlider extends Component {
               <MenuItem><Link to="/">Order List</Link></MenuItem>
               <MenuItem><Link to="/admin/data-tables">Products Data</Link></MenuItem>
               <MenuItem><Link to="/admin/filters-slider">Filters and Slider</Link></MenuItem>
+              <MenuItem><Link to="/admin/Instruction">Instruction</Link></MenuItem>
               {/*<SubMenu title="КАТАЛОГ">*/}
               {/*  <MenuItem><Link to="/">КОНТАКТЫ</Link></MenuItem>*/}
               {/*  <MenuItem><Link to="/">САМОВЫВОЗ</Link></MenuItem>*/}

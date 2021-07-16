@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
-import {BrowserRouter, Switch, Route, Redirect, Link} from 'react-router-dom';
-import Error404 from './pages/Error404';
+import React, {Component} from "react";
+import {BrowserRouter, Switch, Route} from "react-router-dom";
+import Error404 from "./pages/Error404";
 import Login from "./pages/Login";
 import CreateUpdate from "./pages/CreateUpdate";
 import DataTables from "./pages/DataTables";
 import OrderList from "./pages/OrderList";
-import { ToastContainer } from "react-toastify";
-import {Menu, MenuItem} from "react-pro-sidebar";
+import {ToastContainer} from "react-toastify";
 import FiltersAndSlider from "./pages/FiltersAndSlider";
+import Instruction from "./pages/Instruction";
+
 
 class App extends Component {
   render() {
@@ -29,6 +30,7 @@ class App extends Component {
             <Route path="/admin/filters-slider" exact component={FiltersAndSlider} />
             <Route path="/admin/create" component={CreateUpdate} />
             <Route path="/admin/update/:id" exact component={CreateUpdate} />
+            <Route path="/admin/instruction" exact component={Instruction} />
             <Route component={Error404} />
           </Switch>
         </BrowserRouter>
@@ -42,7 +44,7 @@ class App extends Component {
           pauseOnHover
           closeButton={false}
           bodyClassName="toastBody"
-          toastClassName={({ type }) => contextClass[type || "default"] +
+          toastClassName={({type}) => contextClass[type || "default"] +
             " flex p-1 min-h-10 rounded-md justify-between overflow-hidden cursor-pointer"
           }
         />

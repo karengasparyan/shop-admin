@@ -252,13 +252,13 @@ class CreateUpdate extends Component {
                 cols={55}
                 style={{ width: '100%' }}
               />
-              {values.description || !single ?
+
                 <CKEditor
                   data={values.description}
                   key={params.id}
                   onChange={(ev) => this.handleChange(ev.editor.getData(), 'description')}
-                />:null
-              }
+                />
+
               {/*{(values.description || !single) && <DescEditor*/}
               {/*  value={values.description}*/}
               {/*  onChange={(ev) => this.handleChange(ev, 'description')}*/}
@@ -371,7 +371,11 @@ class CreateUpdate extends Component {
                            className="imagePreview"
                            src={`${direction}/productImage/${singleProduct.id}/${image.path}`}
                            alt={`image_${image.id}`} />
-                      <span onClick={() => this.removeImage(imageId)} className="deleteImageButton">x</span>
+                      <span
+                        onClick={() => this.removeImage(imageId)}
+                        className="deleteImageButton"
+                        gloss="Delete"
+                      >x</span>
                     </div>
                   )
                 })}
@@ -382,7 +386,11 @@ class CreateUpdate extends Component {
                     src={f.path}
                     alt={`image${i}`}
                   />
-                  <span onClick={() => this.removePreviewImage(f)} className="deleteImageButton">x</span>
+                  <span
+                    onClick={() => this.removePreviewImage(f)}
+                    className="deleteImageButton"
+                    gloss="Delete"
+                  >x</span>
                 </div>)}
               </div>
               <div className="file-input">
